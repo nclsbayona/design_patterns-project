@@ -20,11 +20,3 @@ services:
     build: cloudbeaver
     ports: 
     - 8978:8978
-
-  jenkins:
-    build: jenkins
-    container_name: jenkins-server
-    volumes:
-      - ./jenkins/data:/var/jenkins_home
-    ports:
-      - "8081:8080"
