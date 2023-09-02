@@ -9,6 +9,7 @@ pipeline {
           docker version
           docker info
           docker compose version
+          git version
           '''
        }
     }
@@ -34,6 +35,7 @@ pipeline {
     }
     stage("Start project") {
       steps {
+        sh 'git pull'
         sh 'docker compose -f compose.yml up -d'
       }
     }
