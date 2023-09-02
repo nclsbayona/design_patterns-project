@@ -35,7 +35,7 @@ pipeline {
     }
     stage("Start project") {
       steps {
-        sh 'git config pull.rebase false && git pull'
+        sh 'git clone https://github.com/nclsbayona/design_patterns-project'
         sh 'docker compose -f compose.yml up -d'
       }
     }
