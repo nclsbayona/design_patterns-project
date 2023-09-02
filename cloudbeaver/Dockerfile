@@ -1,0 +1,1 @@
+FROM docker.io/dbeaver/cloudbeaver:23.1.4

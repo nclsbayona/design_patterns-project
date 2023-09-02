@@ -1,0 +1,8 @@
+workflow-aggregator
+workflow-scm-step
+warnings-ng
+pipeline-npm
+pipeline-multibranch-defaults
+github
+docker-workflow
+blueocean-pipeline-editor

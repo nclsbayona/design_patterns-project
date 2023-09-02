@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    .form-item{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        label{
+            flex: 1;
+        }
+      
+    }
+    p-button{
+        align-self: center;
+    }
+
+
+    
+    th{
+        background-color: #6bd600 ;
+        border: 2px solid #65ca00;
+        color: white
+    }
+}
+
+.result-container{
+    margin-top: 50px; 
+    padding: 60px;
+    border: 1px solid black;
+    border-radius: 5%;
+}

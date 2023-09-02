@@ -1,0 +1,34 @@
+<p-toast></p-toast>
+<div class="container">
+    <div class="form-container">
+        <form name="searchForm" #searchForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-item">
+                <label for="">Citas por: </label>
+                <p-calendar [(ngModel)]="search" name="date" [required]="true"></p-calendar>
+            </div>
+            <p-button [disabled]="!searchForm.form.valid" label="Buscar" styleClass="p-button-raised p-button-info"
+                type="submit"></p-button>   
+        </form>
+    </div>
+
+
+    <div class="result-container" *ngIf="this.appointments.length !== 0">
+        <p-table [value]="appointments" [tableStyle]="{ 'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombres</th>
+                    <th>Hora</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-appointment let-rowIndex="rowIndex">
+                <tr [ngClass]="{'shadow-row': rowIndex%2 === 0}">
+                    <td>{{ appointment.cc }}</td>
+                    <td>{{ appointment.name +" "+ appointment.surname }}</td>
+                    <td>{{ appointment.time }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+        
+    </div>
+</div>

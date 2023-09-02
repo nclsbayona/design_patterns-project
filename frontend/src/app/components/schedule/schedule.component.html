@@ -1,0 +1,37 @@
+<p-toast></p-toast>
+<div class="container">
+    <div class="form-container">
+        <form name="scheduleForm" #scheduleForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-item">
+                <label for="">Cédula</label>
+                <input type="text" required pattern="^[0-9]+$" pInputText [(ngModel)]="appointment.cc" name="cc" />
+            </div>
+
+            <div class="form-item">
+                <label for="">Nombres</label>
+                <input type="text" required pattern="^[a-zA-Z ]+$" pInputText [(ngModel)]="appointment.name" name="name" />
+            </div>
+
+            <div class="form-item">
+                <label for="">Apellido</label>
+                <input type="text" required pattern="^[a-zA-Z ]+$" pInputText [(ngModel)]="appointment.surname" name="surname" />
+            </div>
+
+            <div class="form-item">
+                <label for="">Edad</label>
+                <input type="text" required pattern="^[0-9]+$" pInputText [(ngModel)]="appointment.age" name="age" />
+            </div>
+
+            <div class="form-item">
+                <label for="">Fecha y hora</label>
+                <p-calendar [(ngModel)]="date" [showTime]="true"
+                    name="date" [required]="true"></p-calendar>
+            </div>
+
+            <p-button [disabled]="!scheduleForm.form.valid" label="Registrar" styleClass="p-button-raised p-button-info"
+                type="submit"></p-button>
+        </form>
+
+    </div>
+</div>

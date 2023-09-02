@@ -1,0 +1,30 @@
+services:
+  api:
+    build: backend
+    ports:
+      - 8080:8080
+
+  front:
+    build: frontend
+    ports:
+    - 80:4200
+    
+  postgres-db:
+    build: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+    - 5432:5432
+
+  cloudbeaver:
+    build: cloudbeaver
+    ports: 
+    - 8978:8978
+
+  jenkins:
+    build: jenkins
+    container_name: jenkins-server
+    volumes:
+      - ./jenkins/data:/var/jenkins_home
+    ports:
+      - "8080:8080"
