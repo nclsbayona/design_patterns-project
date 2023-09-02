@@ -35,7 +35,7 @@ pipeline {
     }
     stage("Start project") {
       steps {
-        sh 'rm -rf * && git clone https://github.com/nclsbayona/design_patterns-project'
+        sh 'rm -rf * && git clone https://github.com/nclsbayona/design_patterns-project && cd design_patterns-project'
         sh 'docker compose -f compose.yml up -d'
       }
     }
