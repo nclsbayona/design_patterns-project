@@ -35,7 +35,7 @@ pipeline {
     }
     stage("Start project") {
       steps {
-        sh 'git pull'
+        sh 'git config pull.rebase false && git pull'
         sh 'docker compose -f compose.yml up -d'
       }
     }
