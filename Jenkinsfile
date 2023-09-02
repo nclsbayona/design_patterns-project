@@ -41,7 +41,7 @@ pipeline {
     stage("Inform Status III") {
       steps{
         sh 'echo Up'
-        sh 'docker compose -f compose.yml ps'
+        sh '&& cd design_patterns-project && docker compose -f compose.yml ps'
       }
     }
   }
