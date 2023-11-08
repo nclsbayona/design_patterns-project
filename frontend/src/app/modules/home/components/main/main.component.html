@@ -1,0 +1,22 @@
+<div class="flex flex-col gap-2 ">
+    <p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="4000">
+        <ng-template let-product pTemplate="item">
+            <div class="border border-solid border-gray-300 rounded m-2 text-center py-5 px-3 flex flex-col">
+                <h6 class="mt-0 mb-3 font-bold">{{ product.provider_name  }}</h6>
+                <div class="mb-3 flex items-center justify-center aspect-w-1 aspect-h-[0.7] mt-[auto]">
+                    <p-image [src]="product.image" alt="Image" width="250" [preview]="true"></p-image>
+                </div>
+                <div>
+                    <h6 class="mt-0 mb-3">{{ "$ "+ product.price  }}</h6>
+                    <h6 class="mt-0 mb-3">{{ product.name  }}</h6>
+                    <p-tag [value]="'Disponible'" [severity]="'success'"></p-tag>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    
+    <div class="self-center flex flex-col gap-1">
+        <h1 class="text-2xl font-bold">Lo mejor del día</h1>
+        <p-image width="700" [src]="'https://png.pngtree.com/png-clipart/20230427/original/pngtree-creative-red-publicity-banner-for-pizza-restaurant-png-image_9117267.png'" alt="Image"  [preview]="true"></p-image>
+    </div>
+</div>

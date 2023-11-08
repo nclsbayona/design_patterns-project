@@ -1,0 +1,15 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div *ngIf="this.products.length === 0" class="bg-white p-4 shadow-md">
+        <h2 class="text-xl font-semibold">No hay productos</h2>
+        <p>NO HAY PRODUCTOS, REGRESA MÁS TARDE</p>
+    </div>
+
+    <div *ngFor="let product of products" class="bg-white p-4 shadow-md flex flex-col items-center gap-3">
+        <h2 class="text-xl font-semibold">{{product.name}}</h2>
+        <p-image class="mt-[auto]" [src]="product.image" alt="Image" width="250" height="250" [preview]="true"></p-image>
+        <h2 class="text-xl font-semibold mt-[auto]">{{  product.price | currency:'USD':'symbol':'1.2-2'}}</h2>
+        <h2 class="text-xl font-semibold">{{"Proveedor: "+product.provider_name}}</h2>
+        <p-button (onClick)="this.add(product)" label="Comprar" styleClass="p-button-outlined p-button-danger"></p-button>
+    </div>
+    
+</div>

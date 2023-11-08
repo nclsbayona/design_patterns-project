@@ -1,0 +1,25 @@
+
+<div class="w-full flex flex-row gap-1 justify-center items-center pb-5">
+    <i class="pi pi-shopping-cart" style="font-size: 3rem"></i>
+    <h1 class="font-bold text-5xl"> Tu Callito de compras</h1>
+</div>
+<div class="w-full flex flex-col gap-5 justify-center items-center pb-5">
+    <h1 class="font-bold text-5xl">Costo: {{total |currency:'USD':'symbol':'1.2-2'}}</h1>
+    <p-button [disabled]="this.total === 0" (onClick)="this.pay()" label="Pagar" styleClass="p-button-raised p-button-danger p-button-lg"></p-button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div *ngIf="this.products.length === 0" class="bg-white p-4 shadow-md">
+        <h2 class="text-xl font-semibold">No hay productos</h2>
+        <p>No tienes productos en el carrito, agregalos desde el explorador</p>
+        <a class="text-red-900" [routerLink]="'/home/explore'">Explorador</a>
+    </div>
+
+    <div *ngFor="let product of products" class="bg-white p-4 shadow-md flex flex-col items-center gap-3">
+        <h2 class="text-xl font-semibold">{{product.name}}</h2>
+        <p-image class="mt-[auto]" [src]="product.image" alt="Image" width="250" height="250" [preview]="true"></p-image>
+        <h2 class="text-xl font-semibold mt-[auto]">{{  product.price | currency:'USD':'symbol':'1.2-2'}}</h2>
+        <h2 class="text-xl font-semibold">{{"Proveedor: "+product.provider_name}}</h2>
+    </div>
+    
+</div>

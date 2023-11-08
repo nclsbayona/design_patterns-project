@@ -1,5 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-    font-family: var(--font-family);
-    margin: 10%
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
 }

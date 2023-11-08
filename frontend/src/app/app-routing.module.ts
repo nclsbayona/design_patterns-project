@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ScheduleComponent } from './components/schedule/schedule.component';
-import { SearchComponent } from './components/search/search.component';
-import { MainComponent } from './components/main/main.component';
+import { Error404Component } from './modules/error/components/error404/error404.component';
 
 const routes: Routes = [
-  {path: "", component: MainComponent, title: "Agendamiento de citas"},
-  {path: "schedule", component: ScheduleComponent, title: "Agendar cita"},
-  {path: "search", component: SearchComponent, title: "Buscar"},
-  {path:"**", redirectTo:"" }
+  { path: '', redirectTo: "home", pathMatch: 'full' },
+  { path: "home", loadChildren: () => import('src/app/modules/home/home.module').then(m => m.HomeModule), title: "Inicio" },
+  { path: "**", loadChildren: () => import('src/app/modules/error/error.module').then(m => m.ErrorModule)}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
